@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-assingments",
+  "version": "1.0.0",
+  "description": "\"# node-learning\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djeter0624/node-learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/djeter0624/node-learning/issues"
+  },
+  "homepage": "https://github.com/djeter0624/node-learning#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3",
+    "prompt": "^1.0.0"
+  }
+}
