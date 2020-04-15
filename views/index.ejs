@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2b</title>
+</head>
+<body>
+    <h1><%= heading %></h1>
+    <h4>Danielle Jeter</h4>
+        <table> 
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Created At</th>
+            </tr>
+            <% posts.forEach(function(post){ %>
+            <tr>
+                <td><%= post.name %></td>
+                <td><%= post.id %></td>
+                <td><%= post.createdAt %></td>
+            </tr>
+            <%});%>
+        </table>   
+</body>
+</html>

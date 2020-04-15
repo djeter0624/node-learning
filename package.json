@@ -19,8 +19,12 @@
   },
   "homepage": "https://github.com/djeter0624/node-learning#readme",
   "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.2",
     "express": "^4.17.1",
     "nodemon": "^2.0.3",
-    "prompt": "^1.0.0"
+    "prompt": "^1.0.0",
+    "request": "^2.88.2"
   }
 }
