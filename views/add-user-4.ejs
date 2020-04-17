@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4</title>
+</head>
+<body>
+    <!-- method = POST data will not go into the url -->
+    <form method="POST">
+        <p>
+            <label>
+                Name
+                <input type="text" name="name" placeholder="name"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                Address
+                <textarea type="text" name="address" placeholder="address"></textarea>
+                <!-- note: name field goes to the server to tell which field we have populated -->
+                <!-- name attribute defines where query parameters go -->
+            </label>
+        </p>
+        <p>
+            <label>
+                Email
+                <input type="text" name="email" placeholder="email"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                Add Shopping Items
+                <input type="text" name="item" id="item" placeholder="eggs, bread, milk"/>
+            </label>
+        </p>
+        <button type="submit">Add User</button>
+        <!-- note: button must be submit -->
+    </form>
+
+    <!-- script to turn the stor list into an array -->
+    <script>
+
+    </script>
+    
+</body>
+</html>
+
+<!-- notes -->
+<!-- when a form is submitted, it makes a network call -->
