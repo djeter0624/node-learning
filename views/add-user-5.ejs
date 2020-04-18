@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 5</title>
+</head>
+<body>
+    <!-- method = POST data will not go into the url -->
+    <form method="POST">
+        <p>
+            <label>
+                Title
+                <input type="text" name="title" placeholder="title"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                Description
+                <textarea type="text" name="description" placeholder="decription"></textarea>
+                <!-- note: name field goes to the server to tell which field we have populated -->
+                <!-- name attribute defines where query parameters go -->
+            </label>
+        </p>
+        <p>
+            <label>
+                Assignee
+                <input type="text" name="assignee" placeholder="assignee"/>
+            </label>
+        </p>
+        <button type="submit">Add User</button>
+        <!-- note: button must be submit -->
+    </form>
+    
+</body>
+</html>
+
+<!-- notes -->
+<!-- when a form is submitted, it makes a network call -->

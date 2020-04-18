@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <style>
+        .highlight { background-color: yellow !important; }
+     </style>
+
+</head>
+
+<body onload="highlightFunction()">
+    <h1>User Dashboard</h1>
+    <table id="dashboard" >
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description On</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Assignee</th>
+                <th>Remaining</th>
+            </tr>
+        </thead>
+        <tbody id="theBody">
+        <% posts.forEach(function(post){ %>
+        <tr> 
+            <td><%= post._id %></td>
+            <td><%= post.title %></td>
+            <td><%= post.description %></td>
+            <td><%= post.time %></td>            
+            <td><%= post.date %></td>
+            <td><%= post.assignee %></td>
+            <td><%= post.remaining %></td>
+        </tr>
+        <%});%>
+    </tbody>
+    </table>
+   
+    
+    <script>
+        // highlight function 
+        function highlightFunction() 
+        {
+            for (let row of theBody.rows) 
+            {
+
+                for(let cell of row.cells) 
+                {
+                    console.log("cell for",cell.innerText);
+                console.log(cell.innerText)
+                    if(cell.innerText == 0)
+                    {
+                        row.classList.add("highlight");
+                    }
+                }
+            }
+
+        }
+    </script> 
+     
+    <script>
+        $(document).ready(function () {
+            $('#dashboard').DataTable();
+        });
+    </script>
+    
+</body>
+
+</html>
