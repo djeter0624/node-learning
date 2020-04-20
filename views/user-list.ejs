@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #cacaca;
+          text-align: left;
+          padding: 8px;
+        }
+        </style>
+</head>
+<body>
+    <h1> User List</h1>    
+    <table >
+        <tr>
+            <th>ID</th>
+            <th>Userame</th>
+        </tr>
+        <% posts.forEach(function(post){ %>
+        <tr> 
+            <td><%= post._id %></td>
+            <td><%= post.username %></td>
+        </tr>
+        <%});%>
+    </table>
+
+    <div>
+        <a href="/users/profile">
+            Back
+        </a>
+    </div>
+</body>
+</html>

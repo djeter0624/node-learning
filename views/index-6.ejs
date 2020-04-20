@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 6</title>
+</head>
+<body>
+    <form action="/api/auth/login" method="POST">
+            Welcome
+        <p class="errr"><%=error%></p>
+        <p class="succ"><%=msg%></p>
+        <div>
+            Enter a Valid email
+            <input type="text" name="email">
+        </div>
+
+        <div>
+            Enter a Valid Password
+            <input type="password" name="password">
+        </div>
+
+        <div>
+            <button type="submit">
+                Login
+            </button>
+        </div>
+
+        <div >
+            <span >
+                Don’t have an account?
+            </span>
+
+            <a href="/users/signup">
+                Sign Up
+            </a>
+        </div>
+    </form>
+</body>
+</html>

@@ -8,10 +8,16 @@ const bcrypt = require("bcryptjs");
 
 const jwt = require("jsonwebtoken");
 
+let sess;
 
 // get route
 Router.get("/", (req, res) =>{
-    res.send([]);
+    sess=req.session;
+    sess.email=" "
+    console.log(">>>>",sess.email);
+    res.render('index',{error: req.query.valid?req.query.valid:'',
+                        msg: req.query.msg?req.query.msg:''})
+
 })
 
 // render form for sighnup
@@ -30,7 +36,8 @@ Router.post("/signup", (req, res) =>{
     const User = UserModel.create({
         username: req.body.username,
         password: req.body.password,
-        email: req.body.email
+        email: req.body.email,
+        accountType: 0
     })
 
     console.log(User);

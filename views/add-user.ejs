@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Add User</title>
 </head>
 <body>
-    <form method="POST" action="/api/auth/register">
+    <form method="POST" action="/api/auth/addUser">
         <p>
             <label>Username</label>
             <input type="text" name="username" placeholder="enter valid username"/>
@@ -19,12 +19,17 @@
             <label>Email</label>
             <input type="email" name="email" placeholder="enter valid email"/>
         </p>
-        <button type="submit">Sign Up</button>
+        <p>
+            <label>Account Type</label>
+            <input type="radio" name="accountType" value="0"/>User
+            <input type="radio" name="accountType" value="1"/>Admin     
+        </p>
+
+        <button type="submit">Add User</button>
 
         <div>
-            Have an account?
-            <a href="/">
-                Login
+            <a href="/users/profile">
+                Cancel
             </a>
         </div>
     </form>

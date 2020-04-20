@@ -1,23 +1,20 @@
 const express = require("express");
-const application = express();
-// routes
-const UserRoutes = require("./routes/user");
-
-const bodyParser = require("body-parser");
+const app = express();
 
 // path
 const path = require("path");
 
-
+// routes
+const UserRoutes = require("./routes/user");
 // use userroutes
-application.use("/user", UserRoutes);
+app.use("/user", UserRoutes);
 
 
-application.set("view engine", "ejs");
-application.set("views", path.join(__dirname, "./views"));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "./views"));
 
-application.use(bodyParser.urlencoded({extended: true}));
-application.use(bodyParser.json);
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json);
 
 
 // export this app

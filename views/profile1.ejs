@@ -1,0 +1,48 @@
+<a  href="/users/logout">Logout</a>
+<center>
+    <h1>Admin Dashboard</h1>
+</center>
+<hr/>
+<center>
+    <h2>Hi <%=user.username%></h2>
+</center>
+
+<center>
+    <a  href="/users/add-user">Add User</a>
+    <br>
+    <a  href="/users/user-list">User List</a>
+    <br>
+    <a  href="/users/add-product">Add Product</a>
+</center>
+
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #cacaca;
+      text-align: left;
+      padding: 8px;
+    }
+    </style>
+
+
+<center>
+    <h1> Product List</h1>    
+    <table >
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        <% prods.forEach(function(post){ %>
+        <tr> 
+            <td><%= post._id %></td>
+            <td><%= post.name %></td>
+            <td><%= post.price %></td>
+        </tr>
+        <%});%>
+    </table>
+</center>

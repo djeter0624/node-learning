@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+<body>
+    <form method="POST" action="/api/auth/addProduct">
+        <p>
+            <label>Name</label>
+            <input type="text" name="name" placeholder="enter product name"/>
+        </p>
+        <p>
+            <label>Price</label>
+            <input type="number" step=".01" name="price"  placeholder="enter product price"/>
+        </p>
+
+        <button type="submit">Add Product</button>
+
+        <div>
+            <a href="/users/profile">
+                Cancel
+            </a>
+        </div>
+    </form>
+    
+</body>
+</html>
