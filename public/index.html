@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title>Assignment 7</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type='text/javascript' src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <style>
+        body {
+            margin-top: 30px;
+        }
+        #messageArea {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+
+<div>
+
+    <div id="userFormArea" >
+        <div >
+            <form id="userForm">
+                <div>
+                    <label>Enter username</label>
+                    <input id="username" />
+                    <br />
+                    <input type="submit" value="Login" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="messageArea">
+        <div >
+            <div>
+                <h3>Users</h3>
+                <ul id="users"></ul>
+            </div>
+        </div>
+        <div>
+            <div id="chat"></div>
+
+            <form id="messageForm">
+                <div>
+                    <label>Enter message</label>
+                    <textarea id="message"></textarea>
+                    <br />
+                    <input type="submit" value="Send Message" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        // connect to socket
+        const socket = io.connect();
+
+        // $ binds property to attribute
+        // # refers to the ID
+        const $messageForm = $('#messageForm');
+        const $message = $('#message');
+        const $chat = $('#chat');
+        const $messageArea = $('#messageArea');
+        const $userFormArea = $('#userFormArea');
+        const $userForm = $('#userForm');
+        const $users = $('#users');
+        const $username = $('#username');
+
+        // submit the message form
+        $messageForm.submit(function(e) {
+            e.preventDefault();
+            socket.emit('send message', $message.val());
+            $message.val('');
+        });
+
+        // get the new message
+        socket.on('new message', function(data) {
+            $chat.append('<div>'+data.user+': '+ data.time +': '+data.msg+'</div>');
+        });
+
+        // submit the user form
+        $userForm.submit(function(e) {
+            // prevent page from reloading
+            e.preventDefault();
+            socket.emit('new user', $username.val(), function(data) {
+                if(data) {
+                    // hide/show elements
+                    $userFormArea.hide();
+                    $messageArea.show();
+                }
+            });
+            // set username to blank
+            $username.val('');
+        });
+
+        socket.on('get users', function(data) {
+            var html = '';
+            for(i = 0; i<data.length;i++){
+                html += '<li>'+data[i]+'</li>';
+
+            }
+            $users.html(html);
+        })
+    });
+</script>
+
+
+</body>
+</html>
